@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b20" />
+  <meta name="description" content="有一整个宇宙的温柔，想慢慢讲给你听。" />
+  <title>一封藏在星星里的情书 ✦</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b0b20;--soft:#fbdce7;--pink:#ff9bca;--gold:#f5d8a9;--muted:#b9b0c9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100svh;overflow-x:hidden;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Yahei",sans-serif;color:#fff4f8}
+    body::before{content:"";position:fixed;inset:-15%;z-index:-3;background:radial-gradient(ellipse at 52% 20%,#45274e 0%,transparent 38%),radial-gradient(ellipse at 16% 65%,#27244e 0%,transparent 38%),radial-gradient(ellipse at 85% 80%,#472041 0%,transparent 40%),#0b0b20;pointer-events:none}
+    .aurora{position:fixed;inset:-30%;z-index:-2;background:radial-gradient(ellipse at 40% 40%,#d6719b19,transparent 33%),radial-gradient(ellipse at 70% 60%,#6c6ce01c,transparent 33%);animation:drift 15s ease-in-out infinite alternate;pointer-events:none}
+    @keyframes drift{to{transform:translate(5%,-4%) rotate(9deg)}}
+    #stars,#floaters{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+    .star{position:absolute;border-radius:50%;background:#fff6e8;box-shadow:0 0 9px #fff5dcaa;animation:twinkle var(--duration) ease-in-out infinite alternate;animation-delay:var(--delay);opacity:.4}
+    @keyframes twinkle{to{opacity:1;transform:scale(1.7)}}
+    .shooting{position:absolute;height:1px;width:110px;background:linear-gradient(90deg,transparent,#ffdee9);transform:rotate(-28deg);opacity:0;animation:shoot 9s linear infinite;animation-delay:2s;top:16%;left:82%;filter:drop-shadow(0 0 6px #ffcae0)}
+    @keyframes shoot{3%{opacity:0}7%{opacity:.9}19%{opacity:0;transform:translate(-65vw,36vw) rotate(-28deg)}100%{opacity:0}}
+    .float{position:absolute;bottom:-50px;opacity:0;animation:rise var(--time) linear forwards;color:var(--pink);filter:drop-shadow(0 0 8px #fa77ba77)}
+    @keyframes rise{8%{opacity:.9}85%{opacity:.75}100%{transform:translate(var(--sway),-115vh) rotate(30deg);opacity:0}}
+    main{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px 20px 50px}
+    .wrap{position:relative;width:min(100%,620px);text-align:center}
+    .eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:#ecd1d9aa;font-weight:600;margin:0 0 24px}
+    .moon{margin:0 auto 21px;width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,#ffefdc,#ffc7cf);box-shadow:0 0 35px #ffb7dc66,0 0 95px #ffabdc20;position:relative;animation:bob 4s ease-in-out infinite}
+    .moon::before{content:"";width:57px;height:57px;border-radius:50%;position:absolute;top:-8px;right:-9px;background:#1e1833;box-shadow:-3px 3px 8px #421e5377}
+    @keyframes bob{50%{transform:translateY(-7px)}}
+    h1{font-family:Georgia,"Songti SC","STSong",serif;font-weight:500;font-size:clamp(33px,8vw,52px);letter-spacing:.08em;line-height:1.45;margin:0;text-shadow:0 0 24px #eeb3d044}
+    .gradient{background:linear-gradient(105deg,#fff0de,#ffb8d6 65%,#ded0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{font-size:14px;line-height:2;color:var(--muted);margin:18px auto 30px;max-width:395px}
+    .glass{position:relative;border-radius:27px;padding:33px clamp(23px,6vw,44px);background:linear-gradient(150deg,#ffffff12,#e8b8e408 70%,#ffffff05);border:1px solid #ffffff25;box-shadow:0 24px 80px #0005,inset 0 1px #ffffff14;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .seal{width:78px;height:78px;display:grid;place-items:center;margin:0 auto 20px;transform:rotate(-8deg);background:linear-gradient(145deg,#d785ab,#a05b88);box-shadow:0 10px 34px #ee82b344,inset 0 1px #ffd9eb80;border:1px solid #f6b1cf6d;border-radius:22px;font:34px Georgia;animation:heartbeat 2s ease-in-out infinite}
+    @keyframes heartbeat{0%,100%{transform:rotate(-8deg) scale(1)}40%{transform:rotate(-8deg) scale(1.07)}}
+    .card-title{font-family:Georgia,"Songti SC",serif;font-size:23px;font-weight:500;margin:0 0 10px}
+    .card-desc{color:#d8c9df;font-size:13px;line-height:2;margin:0 auto 24px}
+    button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .primary{border:0;border-radius:999px;padding:15px 28px;background:linear-gradient(105deg,#ffb6cf,#f5d5bb);color:#4d253c;font-weight:700;letter-spacing:.04em;box-shadow:0 8px 28px #fc9eb35c;transition:transform .2s,box-shadow .2s;font-size:14px}
+    .primary:hover{transform:translateY(-3px);box-shadow:0 11px 34px #fc9eb387}.primary:active{transform:scale(.97)}
+    .tiny{color:#a99bb7;font-size:11px;letter-spacing:.04em;margin:25px 0 0}
+    .hidden{display:none!important}
+    #experience{animation:appear .9s ease both} @keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .section{margin:34px 0 0}.section-label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#edc6d9;margin:0 0 14px}
+    .quote-box{min-height:116px;display:grid;place-items:center;margin-bottom:16px;padding:22px 18px;border:1px solid #ffdbef28;border-radius:18px;background:#ffffff08}
+    .quote{font-family:Georgia,"Songti SC",serif;font-size:18px;line-height:1.9;color:#ffe5ef;transition:opacity .2s}
+    .outline{border:1px solid #ffb7d470;color:#ffdde9;background:#ffffff08;border-radius:999px;padding:11px 24px;font-size:13px;transition:background .2s}.outline:hover{background:#ffffff20}
+    .three{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin:15px 0 30px}.three button{width:57px;height:57px;border-radius:50%;border:1px solid #ffcae388;background:#ffffff0e;font-size:23px;transition:transform .2s,background .2s;box-shadow:0 0 22px #ffbfd31a}.three button:hover{transform:translateY(-5px) scale(1.08);background:#ffb3d524}
+    .note{font-size:12px;color:#b9adc4;line-height:1.8}
+    .line{height:1px;background:linear-gradient(90deg,transparent,#f3bdd64d,transparent);margin:30px 0}
+    .ending{font-family:Georgia,"Songti SC",serif;font-size:21px;line-height:1.7;color:#ffe0ed}
+    .sign{font-family:Georgia,serif;color:#d0bed2;font-size:12px;margin-top:19px;letter-spacing:.08em}
+    footer{padding:8px 0 0;font-size:10px;color:#93879e;letter-spacing:.08em}
+    .modal{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;background:#080719c9;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:appear .4s ease}
+    .letter{position:relative;width:min(100%,520px);max-height:min(86svh,740px);overflow:auto;border-radius:22px;background:linear-gradient(160deg,#fff8ed,#ffeef2);color:#5f4251;box-shadow:0 35px 130px #0009;padding:38px clamp(26px,6vw,50px) 34px;text-align:left}
+    .letter::before{content:"✦  ✧  ✦";display:block;text-align:center;letter-spacing:.8em;color:#b98d9e;font-size:15px}
+    .letter h2{text-align:center;font-family:Georgia,"Songti SC",serif;font-weight:500;font-size:27px;color:#8b5670;margin:24px 0}
+    .letter p{line-height:2.2;font-size:14px;white-space:pre-line;margin:0 0 17px}
+    .letter .last{text-align:right;font-family:Georgia,"Songti SC",serif;color:#a25d7b;margin-top:22px}
+    .close{position:absolute;top:13px;right:13px;border:0;border-radius:50%;width:37px;height:37px;background:#8f607018;color:#946780;font-size:21px}
+    .tip{font-size:12px;text-align:center;color:#bda7b1;margin-top:18px}
+    :focus-visible{outline:2px solid #ffdfeb;outline-offset:4px}
+    @media(max-width:430px){main{padding:26px 17px 42px}.glass{border-radius:23px;padding:29px 22px}.moon{width:65px;height:65px}.moon::before{width:49px;height:49px}.sub{font-size:13px}.letter{padding-top:37px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+  <div id="stars" aria-hidden="true"><i class="shooting"></i></div>
+  <div id="floaters" aria-hidden="true"></div>
+  <main>
+    <div class="wrap">
+      <p class="eyebrow">A LITTLE UNIVERSE, JUST FOR YOU</p>
+      <div class="moon" aria-hidden="true"></div>
+      <h1>今晚的星星<br><span class="gradient">都在偷偷想你</span></h1>
+      <p class="sub">我把没说出口的温柔，藏进了这个小小的宇宙。<br>希望你打开的时候，刚好会笑。 ✨</p>
+      <section id="welcome" class="glass" aria-label="打开礼物">
+        <div class="seal" aria-hidden="true">♥</div>
+        <h2 class="card-title">嘿，给最特别的你</h2>
+        <p class="card-desc">这不是一份多贵重的礼物，<br>只是我把喜欢写成了一个网页。<br>准备好收下我的小心意了吗？</p>
+        <button id="openBtn" class="primary">拆开这份小小的偏爱 ♡</button>
+        <p class="tiny">P.S. 最后的那封信，记得点开看看。</p>
+      </section>
+      <section id="experience" class="glass hidden" aria-label="浪漫星空情书">
+        <p class="section-label">CHAPTER 01 · A FEW WORDS</p>
+        <h2 class="card-title">有些话，想慢慢说给你听</h2>
+        <p class="card-desc">轻轻点击按钮，收下一句今天的心动。</p>
+        <div class="quote-box" aria-live="polite"><span id="quote" class="quote">遇见你之后，普通的日子也有了光。</span></div>
+        <button class="outline" id="nextQuote">再收下一句心动 ✦</button>
+        <div class="line"></div>
+        <p class="section-label">CHAPTER 02 · THREE LITTLE STARS</p>
+        <h2 class="card-title">有三颗星星想告诉你</h2>
+        <div class="three" role="group" aria-label="点亮三颗星星">
+          <button type="button" data-star="0" aria-label="第一颗星">✦</button>
+          <button type="button" data-star="1" aria-label="第二颗星">✧</button>
+          <button type="button" data-star="2" aria-label="第三颗星">✦</button>
+        </div>
+        <p id="starNote" class="note" aria-live="polite">点点星星，看看它们替我说了什么。</p>
+        <div class="line"></div>
+        <p class="section-label">THE FINAL CHAPTER · A LETTER</p>
+        <p class="ending">“我最幸运的事情之一，<br>是我们刚好遇见。”</p>
+        <button id="letterBtn" class="primary">打开只写给你的情书 💌</button>
+        <p class="sign" id="signature">WITH LOVE, FROM SOMEONE WHO ADORES YOU</p>
+      </section>
+      <p class="tiny" id="hint">把这颗星星留给你，愿你每一天都闪闪发亮。</p>
+      <footer>MADE WITH ♥ & A LITTLE BIT OF MAGIC</footer>
+    </div>
+  </main>
+  <div id="letterModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+    <article class="letter">
+      <button id="closeBtn" class="close" aria-label="关闭情书">×</button>
+      <h2 id="letterTitle">致我最喜欢的你 ♡</h2>
+      <p id="letterText"></p>
+      <p id="letterSign" class="last"></p>
+      <p class="tip">愿你永远做自由、快乐、闪闪发光的自己。</p>
+    </article>
+  </div>
+  <script>
+  // ✨ 个性化区：你可以把下面的称呼和文字改成你们专属的内容。
+  const CONFIG = {
+    to: '我最喜欢的你',
+    from: '一个超级喜欢你的人',
+    quotes: [
+      '遇见你之后，普通的日子也有了光。',
+      '喜欢你，是每天都想再选一次的答案。',
+      '你不用时时刻刻陪我，只要知道我一直为你开心。',
+      '在很多很多平凡的瞬间，我都会突然想起你。',
+      '想把晚风、星星和最好的温柔，都分你一半。',
+      '世界很大，而我偏偏觉得遇见你最特别。',
+      '你的笑容，是我收藏过最珍贵的风景。',
+      '比起轰轰烈烈，更想陪你走过好多温柔的日常。'
+    ],
+    stars: [
+      '第一颗星：希望你每天都有值得开心的小事。🌷',
+      '第二颗星：希望你的梦想都能慢慢发光。🌙',
+      '第三颗星：希望你一直知道，你值得被温柔对待。💗'
+    ],
+    letter: [
+      '不知道你看到这里，会不会偷偷笑一下。',
+      '其实我有好多好多话想对你说，但比起说多少漂亮的情话，我更想认真地对你好。',
+      '我喜欢你开心时的样子，也喜欢你专心做自己事情时闪闪发光的样子。你不需要为了谁改变步调，做你自己就很好。',
+      '未来的日子里，我希望我们可以慢慢了解彼此，分享好玩的事，走过平凡的小路，发现更多只属于我们的快乐。',
+      '你不用急着回应什么。只希望今天这个小小的网页，能替我轻轻说一句：',
+      '遇见你，真好。♡'
+    ]
+  };
+  const $=id=>document.getElementById(id);
+  $('letterTitle').textContent=`致${CONFIG.to} ♡`;
+  $('letterText').textContent=CONFIG.letter.join('\n\n');
+  $('letterSign').textContent=`—— ${CONFIG.from} ♥`;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stars=$('stars');
+  for(let i=0;i<(reduced?40:95);i++){
+    let s=document.createElement('i');s.className='star';
+    let d=Math.random()*2+0.6;
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${d}px;height:${d}px;--duration:${2+Math.random()*4}s;--delay:-${Math.random()*5}s`;
+    stars.appendChild(s);
+  }
+  let quoteIndex=0;
+  $('nextQuote').addEventListener('click',()=>{
+    quoteIndex=(quoteIndex+1)%CONFIG.quotes.length;
+    $('quote').animate([{opacity:.15,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:350,easing:'ease-out'});
+    $('quote').textContent=CONFIG.quotes[quoteIndex];
+    littleHearts(5);
+  });
+  function littleHearts(count=18){
+    if(reduced)return;
+    for(let i=0;i<count;i++){
+      const e=document.createElement('span');e.className='float';e.textContent=Math.random()>.35?'♥':'✦';
+      e.style.cssText=`left:${Math.random()*100}%;font-size:${11+Math.random()*17}px;--time:${4+Math.random()*4}s;--sway:${Math.random()*140-70}px;animation-delay:${Math.random()*.7}s`;
+      $('floaters').appendChild(e);setTimeout(()=>e.remove(),9000);
+    }
+  }
+  $('openBtn').addEventListener('click',()=>{
+    $('welcome').classList.add('hidden');$('experience').classList.remove('hidden');
+    $('hint').textContent='现在，星星知道你来过啦 ✨';
+    littleHearts(35);
+  });
+  document.querySelectorAll('[data-star]').forEach(b=>b.addEventListener('click',()=>{
+    const i=Number(b.dataset.star);$('starNote').textContent=CONFIG.stars[i];
+    b.style.background='#ffb3d543';b.style.transform='scale(1.15)';littleHearts(9);
+  }));
+  function openLetter(){
+    $('letterModal').classList.remove('hidden');document.body.style.overflow='hidden';
+    $('closeBtn').focus();littleHearts(45);
+  }
+  function closeLetter(){
+    $('letterModal').classList.add('hidden');document.body.style.overflow='';$('letterBtn').focus();
+  }
+  $('letterBtn').addEventListener('click',openLetter);
+  $('closeBtn').addEventListener('click',closeLetter);
+  $('letterModal').addEventListener('click',e=>{if(e.target===$('letterModal'))closeLetter()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('letterModal').classList.contains('hidden'))closeLetter()});
+  </script>
+</body>
+</html>
