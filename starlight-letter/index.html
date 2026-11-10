@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0b20" />
   <meta name="description" content="有一整个宇宙的温柔，想慢慢讲给你听。" />
-  <title>一封藏在星星里的情书 ✦</title>
+  <title>给愉宝的一封星空情书 ✦</title>
   <style>
     :root{color-scheme:dark;--bg:#0b0b20;--soft:#fbdce7;--pink:#ff9bca;--gold:#f5d8a9;--muted:#b9b0c9}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100svh;overflow-x:hidden;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Yahei",sans-serif;color:#fff4f8}
@@ -70,17 +70,18 @@
     <div class="wrap">
       <p class="eyebrow">A LITTLE UNIVERSE, JUST FOR YOU</p>
       <div class="moon" aria-hidden="true"></div>
-      <h1>今晚的星星<br><span class="gradient">都在偷偷想你</span></h1>
+      <h1>愉宝，今晚的星星<br><span class="gradient">都在偷偷想你</span></h1>
       <p class="sub">我把没说出口的温柔，藏进了这个小小的宇宙。<br>希望你打开的时候，刚好会笑。 ✨</p>
       <section id="welcome" class="glass" aria-label="打开礼物">
         <div class="seal" aria-hidden="true">♥</div>
-        <h2 class="card-title">嘿，给最特别的你</h2>
+        <h2 class="card-title">嘿，愉宝 ♡</h2>
         <p class="card-desc">这不是一份多贵重的礼物，<br>只是我把喜欢写成了一个网页。<br>准备好收下我的小心意了吗？</p>
         <button id="openBtn" class="primary">拆开这份小小的偏爱 ♡</button>
         <p class="tiny">P.S. 最后的那封信，记得点开看看。</p>
       </section>
       <section id="experience" class="glass hidden" aria-label="浪漫星空情书">
         <p class="section-label">CHAPTER 01 · A FEW WORDS</p>
+        <p class="tiny" id="daysTogether">2026.10.23 · 我们的故事从这天开始 ♡</p>
         <h2 class="card-title">有些话，想慢慢说给你听</h2>
         <p class="card-desc">轻轻点击按钮，收下一句今天的心动。</p>
         <div class="quote-box" aria-live="polite"><span id="quote" class="quote">遇见你之后，普通的日子也有了光。</span></div>
@@ -116,8 +117,8 @@
   <script>
   // ✨ 个性化区：你可以把下面的称呼和文字改成你们专属的内容。
   const CONFIG = {
-    to: '我最喜欢的你',
-    from: '一个超级喜欢你的人',
+    to: '愉宝',
+    from: '你的男朋友',
     quotes: [
       '遇见你之后，普通的日子也有了光。',
       '喜欢你，是每天都想再选一次的答案。',
@@ -125,6 +126,7 @@
       '在很多很多平凡的瞬间，我都会突然想起你。',
       '想把晚风、星星和最好的温柔，都分你一半。',
       '世界很大，而我偏偏觉得遇见你最特别。',
+      '2026年10月23日，是我们的故事翻开新一页的那天。',
       '你的笑容，是我收藏过最珍贵的风景。',
       '比起轰轰烈烈，更想陪你走过好多温柔的日常。'
     ],
@@ -134,15 +136,20 @@
       '第三颗星：希望你一直知道，你值得被温柔对待。💗'
     ],
     letter: [
-      '不知道你看到这里，会不会偷偷笑一下。',
+      '愉宝，不知道你看到这里，会不会偷偷笑一下。',
+      '2026年10月23日，我想把这一天好好收藏起来。因为从那天起，我们有了一个只属于彼此的纪念日。',
       '其实我有好多好多话想对你说，但比起说多少漂亮的情话，我更想认真地对你好。',
       '我喜欢你开心时的样子，也喜欢你专心做自己事情时闪闪发光的样子。你不需要为了谁改变步调，做你自己就很好。',
       '未来的日子里，我希望我们可以慢慢了解彼此，分享好玩的事，走过平凡的小路，发现更多只属于我们的快乐。',
       '你不用急着回应什么。只希望今天这个小小的网页，能替我轻轻说一句：',
-      '遇见你，真好。♡'
+      '愉宝，遇见你，真好。♡'
     ]
   };
   const $=id=>document.getElementById(id);
+  // 按访问者当地的日历日期计算，避免夏令时造成计数偏差。
+  const today=new Date();
+  const daysSince=Math.round((Date.UTC(today.getFullYear(),today.getMonth(),today.getDate())-Date.UTC(2026,9,23))/86400000);
+  $('daysTogether').textContent=daysSince>=0?`2026.10.23 · 今天是我们在一起的第 ${daysSince+1} 天 ♡`:'2026.10.23 · 我们的故事从这天开始 ♡';
   $('letterTitle').textContent=`致${CONFIG.to} ♡`;
   $('letterText').textContent=CONFIG.letter.join('\n\n');
   $('letterSign').textContent=`—— ${CONFIG.from} ♥`;
